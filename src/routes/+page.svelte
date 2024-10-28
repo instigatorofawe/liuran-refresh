@@ -25,7 +25,7 @@
     font-size: 14pt;
     font-weight: 400;
     max-width: 225px;
-    margin: 1em auto;
+    margin: 0.75em auto;
 }
 
 .left span {
@@ -118,32 +118,31 @@ import bio from '$lib/images/bio.jpg';
     </div>
 
     <div class="right-wrapper">
-    <div class="right">
-        <h1>About</h1>
-        <div>
-            Currently, I'm a Postdoctoral Scholar with Dr. Patrick Purdon in the department of Anesthesiology,
-            Perioperative and Pain Medicine at Stanford University. My research is funded in part by the NIH through an
-            NIGMS NRSA fellowship 
-            (<a href="https://reporter.nih.gov/search/I7PVmY38_EGQRCTeSb2Yzg/project-details/10899776">
-            F32GM148114
-            </a>).
-        </div>
+        <div class="right">
+            <h1>About</h1>
+            <div>
+                Currently, I'm a Postdoctoral Scholar with Dr. Patrick Purdon in the department of Anesthesiology,
+                Perioperative and Pain Medicine at Stanford University. My research is funded in part by the NIH through
+                an NIGMS NRSA fellowship (<a
+                href="https://reporter.nih.gov/search/I7PVmY38_EGQRCTeSb2Yzg/project-details/10899776"> F32GM148114
+                </a>).
+            </div>
 
-        <div>
-            I work on computational models for treatment optimization in anesthesia and pain management. My projects
-            include causal inference of average and individual treatment effects of surgical pain management strategies,
-            Transformer models for interpretable predictions using diagnosis and procedure billing codes, and
-            physiologically informed dynamic models of postoperative pain.
-        </div>
-        
-        <div>
-            Previously, I completed both my PhD (2021) and my BS (2016) in Biomedical Engineering at Johns Hopkins
-            University.
-        </div>
+            <div>
+                I work on computational models for treatment optimization in anesthesia and pain management. My projects
+                include causal inference of average and individual treatment effects of surgical pain management
+                strategies, Transformer models for interpretable predictions using diagnosis and procedure billing
+                codes, and physiologically informed dynamic models of postoperative pain.
+            </div>
+            
+            <div>
+                Previously, I completed both my PhD (2021) and my BS (2016) in Biomedical Engineering at Johns Hopkins
+                University.
+            </div>
 
-        <div style="font-weight: 200;">
-            This page was last updated on October 27, 2024.
+            <div style="color: #6f6f6f;">
+                This page was last updated on October 27, 2024.
+            </div>
         </div>
-    </div>
     </div>
 </div>
