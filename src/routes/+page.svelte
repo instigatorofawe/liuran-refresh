@@ -18,6 +18,7 @@
 .left h1 {
     font-size: 20pt;
     font-weight: 600;
+    margin-bottom: 0;
 }
 
 .left h2 {
@@ -54,11 +55,12 @@
 }
 
 .right h1 {
-    font-size: 20pt;
-    font-weight: normal;
+    font-size: 16pt;
+    font-weight: 400;
 }
 
 .right div {
+    font-weight: 300;
     margin-bottom: 1.25em;
 }
 
@@ -72,6 +74,20 @@
         margin: 0 auto;
     }
 
+    .left h1 {
+        font-size: 18pt;
+    }
+
+    .left h2 {
+        font-size: 12pt;
+        max-width: 300px;
+        margin: 0.5em auto;
+    }
+
+    .left span {
+        font-size: 11pt;
+    }
+
     .right {
         margin: 0 auto;
     }
@@ -81,7 +97,7 @@
 </style>
 
 <script>
-import bio from '$lib/bio.jpg';
+import bio from '$lib/images/bio.jpg';
 </script>
 
 <div class="about-container">

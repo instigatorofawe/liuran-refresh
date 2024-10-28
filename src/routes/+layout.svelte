@@ -1,6 +1,42 @@
-<script>
-import './styles.css'
-</script>
+<style>
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #fcfcfc;
+}
+
+.nav {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #dedede;
+}
+
+.nav p {
+    font-family: "Open Sans";
+    color: #898989;
+    margin: auto auto;
+    padding: 0 12px 0 12px;
+}
+
+.nav a {
+    color: #898989;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    color: #333333;
+    text-decoration: underline;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 71px);
+}
+</style>
 
 <svelte:head>
     <title>Ran Liu</title>
@@ -12,6 +48,7 @@ import './styles.css'
 <div class="nav">
     <p>
         <a href="/">about</a> |
+        <a href="/publications">publications</a> |
         <a href="https://scholar.google.com/citations?user=bshgBtkAAAAJ&hl=en">scholar</a> |
         <a href="https://github.com/instigatorofawe">github</a> |
         <a href="https://www.linkedin.com/in/rliu14/">linkedin</a>
