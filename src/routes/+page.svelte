@@ -64,6 +64,15 @@
     margin-bottom: 1.25em;
 }
 
+.right a {
+    color: #1A0DAB;
+    text-decoration: none;
+}
+
+.right a:hover {
+    text-decoration: underline;
+}
+
 @media only screen and (max-width: 1024px) {
     .about-container {
         flex-direction: column;
@@ -90,9 +99,7 @@
 
     .right {
         margin: 0 auto;
-    }
-
-
+    } 
 }
 </style>
 
@@ -115,7 +122,11 @@ import bio from '$lib/images/bio.jpg';
         <h1>About</h1>
         <div>
             Currently, I'm a Postdoctoral Scholar with Dr. Patrick Purdon in the department of Anesthesiology,
-            Perioperative and Pain Medicine at Stanford University.
+            Perioperative and Pain Medicine at Stanford University. My research is funded in part by the NIH through an
+            NIGMS NRSA fellowship 
+            (<a href="https://reporter.nih.gov/search/I7PVmY38_EGQRCTeSb2Yzg/project-details/10899776">
+            F32GM148114
+            </a>).
         </div>
 
         <div>
@@ -126,11 +137,11 @@ import bio from '$lib/images/bio.jpg';
         </div>
         
         <div>
-            Previously, I completed both my PhD in Biomedical Engineering (2021) and my BS in Biomedical Engineering
-            (2016) at Johns Hopkins University.
+            Previously, I completed both my PhD (2021) and my BS (2016) in Biomedical Engineering at Johns Hopkins
+            University.
         </div>
 
-        <div>
+        <div style="font-weight: 200;">
             This page was last updated on October 27, 2024.
         </div>
     </div>
