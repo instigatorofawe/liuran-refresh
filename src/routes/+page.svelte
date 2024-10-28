@@ -1,2 +1,105 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<style>
+.about-container {
+    display: flex;
+    flex-direction: row;
+    margin: auto auto;
+}
+
+
+.left {
+    margin: auto;
+    font-family: "Montserrat";
+    text-align: center;
+    margin-left: 25px;
+    margin-right: 70px;
+    max-width: 300px;
+}
+
+.left h1 {
+    font-size: 20pt;
+    font-weight: 600;
+}
+
+.left h2 {
+    font-size: 14pt;
+    font-weight: 400;
+    max-width: 225px;
+    margin: 1em auto;
+}
+
+.left span {
+    font-weight: 400;
+}
+
+.left a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.left a:hover {
+    text-decoration: underline;
+}
+
+.right-wrapper {
+    display: flex;
+}
+
+.right {
+    margin: auto;
+    float: left;
+    font-family: "Lato";
+    max-width: 600px;
+    text-align: justify;
+    margin-right: 25px;
+}
+
+.right h1 {
+    font-size: 20pt;
+    font-weight: normal;
+}
+
+.right div {
+    margin-bottom: 1.25em;
+}
+</style>
+
+<script>
+import bio from '$lib/bio.jpg';
+</script>
+
+<div class="about-container">
+    <div class="left-wrapper">
+        <div class="left">
+            <img src={bio} style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%;" alt="Portrait"/>
+            <h1>Ran Liu</h1>
+            <h2>Scientist and biomedical engineer</h2>
+            <span><a href="mailto:me@liuran.net">me@liuran.net</a></span>
+        </div>
+    </div>
+
+    <div class="right-wrapper">
+    <div class="right">
+        <h1>About</h1>
+        <div>
+            Currently, I'm a Postdoctoral Scholar with Dr. Patrick Purdon in the department of Anesthesiology,
+            Perioperative and Pain Medicine at Stanford University.
+        </div>
+
+        <div>
+            I work on computational models for treatment optimization in anesthesia and pain management. My projects
+            include causal inference of average and individual treatment effects of surgical pain management strategies,
+            Transformer models for interpretable predictions using diagnosis and procedure billing codes, and
+            physiologically informed dynamic models of postoperative pain.
+        </div>
+        
+        <div>
+            Previously, I completed both my PhD in Biomedical Engineering (2021) and my BS in Biomedical Engineering
+            (2016) at Johns Hopkins University.
+        </div>
+
+        <div>
+            This page was last updated on October 27, 2024.
+        </div>
+    </div>
+    </div>
+</div>
