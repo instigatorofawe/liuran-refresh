@@ -61,6 +61,23 @@
 .right div {
     margin-bottom: 1.25em;
 }
+
+@media only screen and (max-width: 1024px) {
+    .about-container {
+        flex-direction: column;
+        margin: 25px;
+    }
+
+    .left {
+        margin: 0 auto;
+    }
+
+    .right {
+        margin: 0 auto;
+    }
+
+
+}
 </style>
 
 <script>

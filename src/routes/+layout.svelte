@@ -12,9 +12,9 @@ import './styles.css'
 <div class="nav">
     <p>
         <a href="/">about</a> |
-        <a href="/publications">publications</a> |
-        <a href="/software">software</a> |
-        <a href="/essays">essays</a>
+        <a href="https://scholar.google.com/citations?user=bshgBtkAAAAJ&hl=en">scholar</a> |
+        <a href="https://github.com/instigatorofawe">github</a> |
+        <a href="https://www.linkedin.com/in/rliu14/">linkedin</a>
     </p>
 </div>
 
