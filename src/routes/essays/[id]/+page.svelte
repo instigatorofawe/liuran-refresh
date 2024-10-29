@@ -6,7 +6,7 @@
 
 <style>
 .essay {
-    font-family: "Lato";
+    font-family: "Lato", "Noto Serif SC";
     font-weight: 300;
     margin: auto;
     max-width: 850px;
