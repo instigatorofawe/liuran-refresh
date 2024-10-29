@@ -73,10 +73,6 @@ div {
     font-size: 0;
 }
 
-.clear {
-    clear: both;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
