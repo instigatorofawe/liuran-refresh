@@ -1,4 +1,4 @@
-import type { PageLoad } from "./$types"
+import type { PageLoad, EntryGenerator } from "./$types"
 import essays from "$lib/essays.yml?raw"
 import { marked } from 'marked'
 import { parse } from "yaml"
@@ -17,3 +17,14 @@ export const load: PageLoad = async ({ fetch, params }) => {
         content: marked.parse(await response.text())
     }
 }
+
+
+export const entries: EntryGenerator = () => {
+    let result = []
+    let directory = parse(essays)
+    for (let i = 0; i < directory.length; i++) {
+        result.push({ id: directory[i].id })
+    }
+
+    return result;
+};
