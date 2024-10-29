@@ -4,10 +4,10 @@ Many comparisons have been drawn between Kurosawa Akira’s samurai masterpiece 
 and Shakespeare’s *King Lear*. The film is almost a beat-by-beat adaptation of the play, transplanted in setting from
 medieval Britain to the Sengoku Jidai. This is more than simply an aesthetic choice, as it reweights the moral discourse
 on matters such as duty and familiality. Nihilistic interpretations of *King Lear* came into vogue in the 20th century,
-and commentators have pointed to King Lear as the inspiration behind absurdist playwrights like Samuel Beckett. Indeed,
-Lear is a man with unmet psychological needs, who subsequently spirals into madness when his life’s course escapes his
-control. Unlike other tragic heroes who struggle valiantly against their fates, Lear stumbles to his doom in a half
-daze, unable to cope with his life’s changing circumstances. Rescue seemingly comes and he regains his senses
+and commentators have pointed to *King Lear* as the inspiration behind absurdist playwrights like Samuel Beckett.
+Indeed, Lear is a man with unmet psychological needs, who subsequently spirals into madness when his life’s course
+escapes his control. Unlike other tragic heroes who struggle valiantly against their fates, Lear stumbles to his doom in
+a half daze, unable to cope with his life’s changing circumstances. Rescue seemingly comes and he regains his senses
 momentarily, but is soon thrown into imprisonment, where Cordelia, perhaps the most moral character in the play, is
 killed. Though he also outlives his treacherous daughters Goneril and Regan, Lear dies nonetheless, having lost his will
 to live. Yet the narrative of *Ran* is not quite as unmoored from reason and agency. Ichimonji Hidetora, unlike Lear, is
@@ -93,19 +93,19 @@ inferior numbers, valiantly win the day against Jiro’s forces, but with his de
 advantage of the situation to seize Jiro’s stronghold, and is the only one who benefits from the ensuing chaos.
 Kurosawa’s ending illustrates the fragility of the good: that control over one’s life is tenuous at best, that one
 mistake or misfortune can undermine the work of a lifetime, and that a chaotic world may be unforgiving and deeply
-unfair, with loyalty, courage, and filiality that go unrewarded, and no second chances. In King Lear, Regan and Goneril
-combine their forces against the French, repelling the invaders. Cordelia is taken captive, and is executed by her
-sisters. Regan and Goneril turn against each other, and also die as a result of their schemes. Shakespeare’s ending on
-the other hand reinforces the absurdity of his narrative, in which no one ultimately benefits, all fall to ruin, and the
-would-be tragic hero, though marked by his hamartia of an infantile psyche, is but a passenger to his doomed fate.
+unfair, with loyalty, courage, and filiality that go unrewarded, and no second chances. In *King Lear*, Regan and
+Goneril combine their forces against the French, repelling the invaders. Cordelia is taken captive, and is executed by
+her sisters. Regan and Goneril turn against each other, and also die as a result of their schemes. Shakespeare’s ending
+on the other hand reinforces the absurdity of his narrative, in which no one ultimately benefits, all fall to ruin, and
+the would-be tragic hero, though marked by his hamartia of an infantile psyche, is but a passenger to his doomed fate.
 
 *King Lear* and *Ran* are nearly identical in plot, with many scenes that play out similarly beat-by-beat. Yet subtle
 differences cause the two stories to read very differently in theme and values espoused. Kurosawa’s plot is imbued with
 meaning and coherence through its continuity with the characters’ pasts, an imperfect but still present correspondence
 between actions and consequences, but also through a cultural backdrop that pronounces unambiguous judgments upon the
-characters’ actions. King Lear is much more ambiguous in its morality than Ran, and literary critics in the 20th century
-often interpreted this ambiguity as nihilism or amorality, but this is not entirely merited. One lesson that may be
-gleaned from Shakespeare’s play is the notion that virtue is banal, and easily overlooked. For any concept of good to
+characters’ actions. *King Lear* is much more ambiguous in its morality than *Ran*, and literary critics in the 20th
+century often interpreted this ambiguity as nihilism or amorality, but this is not entirely merited. One lesson that may
+be gleaned from Shakespeare’s play is the notion that virtue is banal, and easily overlooked. For any concept of good to
 provide prescriptive value, it must be attainable, and to demand the impossible is to invite deceptive malice. Cordelia
 plays a mostly passive role: she refuses to tell falsehoods when Lear demands that she express her love in exchange for
 her share of the kingdom, and later relies on France to rescue her father, whom she forgives upon their reunion. Yet
