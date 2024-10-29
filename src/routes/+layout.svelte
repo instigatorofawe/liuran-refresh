@@ -1,10 +1,14 @@
 <style>
-body {
+:global(body) {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
     background-color: #fcfcfc;
+}
+
+:global(div) {
+    box-sizing: border-box;
 }
 
 .nav {
@@ -13,7 +17,7 @@ body {
     height: 70px;
     font-family: "Open Sans";
     color: #898989;
-    border-bottom: 1px solid #dedede;
+    border-bottom: 1px solid #dfdfdf;
 }
 
 .nav div {
@@ -34,7 +38,7 @@ body {
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 70px);
 }
 </style>
 
