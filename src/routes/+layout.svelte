@@ -11,12 +11,12 @@ body {
     display: flex;
     width: 100%;
     height: 70px;
+    font-family: "Open Sans";
+    color: #898989;
     border-bottom: 1px solid #dedede;
 }
 
-.nav p {
-    font-family: "Open Sans";
-    color: #898989;
+.nav div {
     margin: auto auto;
     padding: 0 12px 0 12px;
 }
@@ -46,13 +46,14 @@ body {
 </svelte:head>
 
 <div class="nav">
-    <p>
+    <div>
         <a href="/">about</a> |
         <a href="/publications">publications</a> |
+        <a href="/essays">essays</a> |
         <a href="https://scholar.google.com/citations?user=bshgBtkAAAAJ&hl=en">scholar</a> |
         <a href="https://github.com/instigatorofawe">github</a> |
         <a href="https://www.linkedin.com/in/rliu14/">linkedin</a>
-    </p>
+    </div>
 </div>
 
 <div class="page-container">

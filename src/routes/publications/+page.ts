@@ -1,12 +1,10 @@
 import type { PageLoad } from "./$types";
 import { parse } from 'yaml'
-import manifest from '$lib/publications.yml?raw'
+import publications from '$lib/publications.yml?raw'
 
-export const load: PageLoad = async ({ fetch }) => {
-
-    let publications = parse(manifest)
+export const load: PageLoad = async () => {
 
     return {
-        publications: publications
+        publications: parse(publications)
     }
 }

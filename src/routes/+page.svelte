@@ -141,7 +141,7 @@ import bio from '$lib/images/bio.jpg';
             </div>
 
             <div style="color: #6f6f6f;">
-                This page was last updated on October 27, 2024.
+                This page was last updated on October 28, 2024.
             </div>
         </div>
     </div>
