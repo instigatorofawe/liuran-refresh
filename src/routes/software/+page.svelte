@@ -1,3 +1,7 @@
+<script>
+import { goto } from '$app/navigation'
+</script>
+
 <style>
 .software {
     font-family: "Lato";
@@ -46,6 +50,10 @@
     font-weight: 300;
     margin: 0.75em 0;
 }
+
+.clickable:hover {
+    cursor: pointer;
+}
 </style>
 
 <div class="software">
@@ -59,4 +67,13 @@ processing algorithms developed in the Purdon Lab.</h3>
 </div>
 
 <h1>Toy projects</h1>
+
+<div class="software-item clickable" onclick={goto("/software/tictactoe")}>
+<h2>Tic-Tac-Toe Solver</h2>
+<h3>
+A Tic-Tac-Toe solver. The game is solved via tabular minimax, with reflection and rotation-invariant hashes computed in
+order to reduce the number of game states to 765.
+</h3>
+</div>
+
 </div>
