@@ -48,11 +48,6 @@ function match(title: string, query: string) : boolean {
     font-weight: 400;
 }
 
-.essaysTable a {
-    text-decoration: none;
-    color: inherit;
-}
-
 .essayTableRow:hover {
     background-color: #dfdfdf;
     cursor: pointer;
@@ -105,7 +100,7 @@ function match(title: string, query: string) : boolean {
 
     {#each data.essays as essay}
         {#if match(essay.title, query)}
-        <tr class="essayTableRow" on:click={goto("/essays/" + essay.id)}>
+        <tr class="essayTableRow" onclick={goto("/essays/" + essay.id)}>
             <td class="essayTableCell">{@html essay.title}
             </td>
             <td class="essayTableCell" style="text-align: right;">

@@ -74,12 +74,15 @@
 </style>
 
 <div class="publications">
-<h1>Selected Publications</h1>
-<div style="text-align: center; margin-bottom: 15px;">
-    For a complete list, see 
+<h1>Selected publications</h1>
+<div style="text-align: center; margin-bottom: 15px; font-weight: 300;">
+    For a complete list:
     <a href="https://scholar.google.com/citations?user=bshgBtkAAAAJ&hl=en">
     https://scholar.google.com/citations?user=bshgBtkAAAAJ&hl=en
     </a>
+</div>
+<div style="text-align: right; margin-right: 25px; font-weight: 300;">
+(*) denotes equal contribution
 </div>
 
 {#each data.publications as publication(publication.title)}

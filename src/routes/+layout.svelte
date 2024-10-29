@@ -49,6 +49,7 @@ body {
     <div>
         <a href="/">about</a> |
         <a href="/publications">publications</a> |
+        <a href="/software">software</a> |
         <a href="/essays">essays</a> |
         <a href="https://scholar.google.com/citations?user=bshgBtkAAAAJ&hl=en">scholar</a> |
         <a href="https://github.com/instigatorofawe">github</a> |
