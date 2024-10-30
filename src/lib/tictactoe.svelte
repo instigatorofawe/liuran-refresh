@@ -68,7 +68,7 @@ div {
 }
 
 .row {
-    height: 75px;
+    height: 74px;
     margin: 0 0 0 0;
     font-size: 0;
 }
