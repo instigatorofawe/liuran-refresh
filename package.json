@@ -3,9 +3,9 @@
 	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-        "build:wasm": "cargo build --release --manifest-path wasm_modules/Cargo.toml --target=wasm32-unknown-unknown",
+		"dev": "npm run build:wasm && vite dev",
+		"build": "npm run build:wasm && vite build",
+        "build:wasm": "cargo build --release --manifest-path wasm_modules/Cargo.toml --target=wasm32-unknown-unknown && wasm-bindgen wasm_modules/target/wasm32-unknown-unknown/release/wasm_modules.wasm --out-dir src/lib/pkg",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
