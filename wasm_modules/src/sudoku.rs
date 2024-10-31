@@ -25,7 +25,7 @@ pub fn solve_sudoku(mut board: Vec<String>) -> Option<Vec<String>> {
         }
     });
 
-    while empty.len() > 0 {
+    while !empty.is_empty() {
         let mut candidate: Option<(usize, Vec<String>)> = None;
         let mut removed: bool = false;
 
@@ -44,9 +44,9 @@ pub fn solve_sudoku(mut board: Vec<String>) -> Option<Vec<String>> {
             match candidates.len() {
                 0 => return None,
                 1 => {
-                    rows[row].remove(candidates.iter().next()?);
-                    cols[col].remove(candidates.iter().next()?);
-                    cells[cell].remove(candidates.iter().next()?);
+                    rows[row].remove(candidates.first()?);
+                    cols[col].remove(candidates.first()?);
+                    cells[cell].remove(candidates.first()?);
                     empty.remove(&index);
                     board[index] = candidates.into_iter().next()?;
                     removed = true;
@@ -79,7 +79,7 @@ pub fn solve_sudoku(mut board: Vec<String>) -> Option<Vec<String>> {
         }
     }
 
-    return Some(board);
+    Some(board)
 }
 
 #[cfg(test)]
@@ -102,7 +102,7 @@ mod tests {
             "9",
         ]
         .into_iter()
-        .map(|x| String::from(x))
+        .map(String::from)
         .collect();
 
         let result = solve_sudoku(board);
@@ -119,11 +119,39 @@ mod tests {
                     "9"
                 ]
                 .into_iter()
-                .map(|x| String::from(x))
+                .map(String::from)
                 .collect()
             )
         );
 
-        println!("{:?}", result.unwrap());
+        let board: Vec<String> = vec![
+            "", "", "9", "7", "4", "8", "", "", "", "7", "", "", "", "", "", "", "", "", "", "2",
+            "", "1", "", "9", "", "", "", "", "", "7", "", "", "", "2", "4", "", "", "6", "4", "",
+            "1", "", "5", "9", "", "", "9", "8", "", "", "", "3", "", "", "", "", "", "8", "", "3",
+            "", "2", "", "", "", "", "", "", "", "", "", "6", "", "", "", "2", "7", "5", "9", "",
+            "",
+        ]
+        .into_iter()
+        .map(String::from)
+        .collect();
+
+        let result = solve_sudoku(board);
+
+        assert_eq!(
+            result,
+            Some(
+                vec![
+                    "5", "1", "9", "7", "4", "8", "6", "3", "2", "7", "8", "3", "6", "5", "2", "4",
+                    "1", "9", "4", "2", "6", "1", "3", "9", "8", "7", "5", "3", "5", "7", "9", "8",
+                    "6", "2", "4", "1", "2", "6", "4", "3", "1", "7", "5", "9", "8", "1", "9", "8",
+                    "5", "2", "4", "3", "6", "7", "9", "7", "5", "8", "6", "3", "1", "2", "4", "8",
+                    "3", "2", "4", "9", "1", "7", "5", "6", "6", "4", "1", "2", "7", "5", "9", "8",
+                    "3"
+                ]
+                .into_iter()
+                .map(String::from)
+                .collect()
+            )
+        );
     }
 }
