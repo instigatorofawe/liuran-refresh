@@ -91,6 +91,7 @@ function reset() {
 }
 
 .cell {
+    font-size: 12pt;
     height: 40px;
     width: 40px;
     display: flex;
@@ -149,6 +150,39 @@ button:hover {
 
 button:focus, button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media only screen and (min-width: 1024px) {
+    .cell {
+        font-size: 24pt;
+        height: 80px;
+        width: 80px;
+        display: flex;
+        border: 1px solid;
+        margin-bottom: -1px;
+        margin-right: -1px;
+    }
+
+    .cell:last-child {
+        border-right: 3px solid;
+        width: 82px;
+    }
+
+    .left {
+        border-left: 3px solid;
+        width: 82px;
+    }
+
+    .top .cell {
+        border-top: 3px solid;
+        height: 82px;
+    }
+
+    .bottom .cell {
+        border-bottom: 3px solid;
+        height: 82px;
+    }
+
 }
 </style>
 
