@@ -8,7 +8,7 @@ pub fn solve_sudoku(mut board: Vec<String>) -> Option<Vec<String>> {
     let mut cells: Vec<HashSet<String>> = vec![(1..=9).map(|x| x.to_string()).collect(); 9];
     let mut empty: HashSet<usize> = HashSet::new();
 
-    board.iter().enumerate().for_each(|(index, value)| {
+    for (index, value) in board.iter().enumerate() {
         let row = index / 9;
         let col = index % 9;
         let cell = row / 3 * 3 + col / 3;
@@ -18,12 +18,15 @@ pub fn solve_sudoku(mut board: Vec<String>) -> Option<Vec<String>> {
                 empty.insert(index);
             }
             _ => {
-                rows[row].remove(value);
-                cols[col].remove(value);
-                cells[cell].remove(value);
+                if !(rows[row].remove(value)
+                    && cols[col].remove(value)
+                    && cells[cell].remove(value))
+                {
+                    return None;
+                }
             }
         }
-    });
+    }
 
     while !empty.is_empty() {
         let mut candidate: Option<(usize, Vec<String>)> = None;
