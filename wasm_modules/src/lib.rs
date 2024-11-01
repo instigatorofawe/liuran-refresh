@@ -74,9 +74,6 @@ pub fn solve_sudoku(mut board: Vec<String>) -> Option<Vec<String>> {
                 let mut board_copy = board.clone();
                 board_copy[index] = candidate;
 
-                #[cfg(test)]
-                println!("{:?}", board_copy);
-
                 let result = solve_sudoku(board_copy);
 
                 if result.is_some() {
@@ -92,6 +89,8 @@ pub fn solve_sudoku(mut board: Vec<String>) -> Option<Vec<String>> {
 
 #[cfg(test)]
 mod tests {
+    use std::string;
+
     use super::*;
 
     #[test]
@@ -161,5 +160,12 @@ mod tests {
                 .collect()
             )
         );
+    }
+
+    #[test]
+    fn test_solve_empty() {
+        let board: Vec<String> = (0..81).into_iter().map(|_| String::from("")).collect();
+        let result = solve_sudoku(board.clone());
+        assert!(result.is_some());
     }
 }

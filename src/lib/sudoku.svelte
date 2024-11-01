@@ -154,9 +154,9 @@ button:focus, button:focus-visible {
 
 @media only screen and (min-width: 1024px) {
     .cell {
-        font-size: 24pt;
-        height: 80px;
-        width: 80px;
+        font-size: 18pt;
+        height: 60px;
+        width: 60px;
         display: flex;
         border: 1px solid;
         margin-bottom: -1px;
@@ -165,22 +165,22 @@ button:focus, button:focus-visible {
 
     .cell:last-child {
         border-right: 3px solid;
-        width: 82px;
+        width: 62px;
     }
 
     .left {
         border-left: 3px solid;
-        width: 82px;
+        width: 62px;
     }
 
     .top .cell {
         border-top: 3px solid;
-        height: 82px;
+        height: 62px;
     }
 
     .bottom .cell {
         border-bottom: 3px solid;
-        height: 82px;
+        height: 62px;
     }
 
 }
