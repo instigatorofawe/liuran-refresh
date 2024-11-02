@@ -10,7 +10,9 @@ let strategy = $state(solve_push_fold(stack, sb, ante, niter))
 let selected = $state("bu")
 
 let push = $state("")
+let bu_fold = $state("")
 let call = $state("")
+let bb_fold = $state("")
 
 compute_freqs()
 
@@ -70,7 +72,9 @@ function compute_freqs() {
     }
     let formatter = new Intl.NumberFormat('en-US', {maximumSignificantDigits: 4})
     push = formatter.format(strategy_bu * 100)
+    bu_fold = formatter.format((1-strategy_bu) * 100)
     call = formatter.format(strategy_bb * 100)
+    bb_fold = formatter.format((1 - strategy_bb) * 100)
 }
 </script>
 
@@ -82,12 +86,6 @@ function compute_freqs() {
 .wrapper {
     display: flex;
     flex-direction: row;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    margin-right: 25px;
 }
 
 .row {
@@ -153,6 +151,15 @@ button:hover {
     background-color: #dfdfdf;
 }
 
+.selector {
+    background-color: #efefef;
+}
+
+.selector:hover {
+    cursor: pointer;
+    background-color: #dfdfdf;
+}
+
 .selected {
     background-color: #afafaf;
 }
@@ -161,10 +168,25 @@ button:hover {
     background-color: #afafaf;
 }
 
+.push-summary {
+    background-color: rgb(233, 150, 122);
+    padding: 5px 10px 5px 10px; 
+    border-radius: 5px;
+}
+
+.call-summary {
+    background-color: rgb(143, 188, 139);
+    padding: 5px 10px 5px 10px; 
+    border-radius: 5px;
+}
+
+.fold-summary {
+    background-color: rgb(109, 162, 192);
+    padding: 5px 10px 5px 10px; 
+    border-radius: 5px;
+}
 </style>
 
-<div class="wrapper">
-<div class="container">
 
 <div style="margin-bottom: 15px; text-align: center;">
 Stack (BB): <input bind:value={stack} style="width: 25px; margin-right: 15px;">
@@ -174,6 +196,19 @@ Ante (BB): <input bind:value={ante} style="width: 45px; margin-right: 15px;">
 <button onclick={() => reset()}>Default</button>
 </div>
 
+<div class="wrapper">
+<div style="width: 40px; border: 1px solid; margin-right: -1px; margin-bottom: -1px;">
+    <div style="height: 325px; border-bottom: 1px solid; display: flex;" class:selected={selected=="bu"}
+    onclick={() => select("bu")} class="selector">
+        <div style="margin: auto;">BU</div>
+    </div>
+    <div style="height: calc(649px - 325px); display: flex;" class:selected={selected=="bb"} onclick={() =>
+    select("bb")} class="selector">
+        <div style="margin: auto;">BB</div>
+    </div>
+
+</div>
+<div>
 {#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as rowIndex}
 <div class="row">
     {#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as colIndex}
@@ -197,17 +232,16 @@ Ante (BB): <input bind:value={ante} style="width: 45px; margin-right: 15px;">
     {/each}
 </div>
 {/each}
+</div>
+</div>
 
 <div style="margin-top: 15px; text-align: center;">
-Strategy:
-<button class:selected={selected == "bu"} onclick={() => select("bu")} style="margin-left: 10px; margin-right: 5px;">BU</button>
-<button class:selected={selected == "bb"} onclick={() => select("bb")} style="margin-right: 15px;">BB</button>
+BU:
+<span class="push-summary" style="margin-left: 5px;">push {push}%</span>
+<span class="fold-summary" style="margin-right: 25px;">fold {bu_fold}%</span>
 
-Summary:
-<span style="background-color: rgb(233, 150, 122); padding: 5px; border-radius: 5px; margin-right: 5px;">push {push}%</span>
-<span style="background-color: rgb(143, 188, 139); padding: 5px; border-radius: 5px;">call {call}%</span>
-</div>
-
-</div>
+BB:
+<span class="call-summary" style="margin-left: 5px;">call {call}%</span>
+<span class="fold-summary">fold {bb_fold}%</span>
 
 </div>
