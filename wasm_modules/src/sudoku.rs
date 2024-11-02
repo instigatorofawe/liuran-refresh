@@ -89,8 +89,6 @@ pub fn solve_sudoku(mut board: Vec<String>) -> Option<Vec<String>> {
 
 #[cfg(test)]
 mod tests {
-    use std::string;
-
     use super::*;
 
     #[test]
