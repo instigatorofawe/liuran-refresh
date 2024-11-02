@@ -74,6 +74,16 @@ processing algorithms developed in the Purdon Lab.</div>
 
 <h1>Toy projects</h1>
 
+<div class="software-item clickable" onclick={goto("/software/pushfold")}>
+<h2>Push/Fold Heads Up Texas Hold'em Solver</h2>
+<div class="description">
+A Nash equilibrium solver for the 2-player Push/Fold (all-in or fold preflop) subgame of Texas Hold'em, written in Rust
+and compiled to WebAssembly. The game is solved via <a href="https://arxiv.org/abs/1407.5042">CFR+</a>, a counterfactual
+regret minimization algorithm variant with good empirical performance. Precomputed tables of equities and matchup
+probabilities allow fast solutions even on mobile devices.
+</div>
+</div>
+
 <div class="software-item clickable" onclick={goto("/software/sudoku")}>
 <h2>Sudoku Solver</h2>
 <div class="description">
