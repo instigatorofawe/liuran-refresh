@@ -43,7 +43,6 @@ function reset() {
 
 function solve() {
     strategy = solve_push_fold(stack, sb, ante, niter)
-    selected = "bu"
     compute_freqs()
 }
 
