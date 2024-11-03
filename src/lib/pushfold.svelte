@@ -311,12 +311,8 @@
         }
 
         .input-container {
-            width: 155px;
-        }
-
-        .input-container > span {
-            margin: 0 0 0 auto;
-            display: block;
+            margin: 0;
+            align-self: end;
         }
     }
 </style>
