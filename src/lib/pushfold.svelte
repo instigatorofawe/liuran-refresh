@@ -1,7 +1,7 @@
 <script lang="ts">
     import { solve_push_fold } from "$lib/pkg/wasm_modules"
 
-    const niter = 100
+    const niter = 150
 
     let stack = $state(5.0)
     let sb = $state(0.5)
@@ -38,7 +38,7 @@
     })
 
     let innerWidth = $state(0)
-    let cellWidth = $derived(innerWidth <= 1024 ? 18 : 49)
+    let cellHeight = $derived(innerWidth <= 1024 ? 19 : 50)
 
     // prettier-ignore
     const hands = [ "22", "32s", "42s", "52s", "62s", "72s", "82s", "92s", "T2s", "J2s", "Q2s", "K2s", "A2s", "32o",
@@ -64,11 +64,23 @@
     }
 </script>
 
-<div class="configs-wrapper">
-    <div class="configs">
-        Stack (BB): <input bind:value={stack} class="config-input" />
-        SB (BB): <input bind:value={sb} class="config-input" />
-        Ante (BB): <input bind:value={ante} class="config-input" style="width: 40px;" />
+<div style="display: flex;">
+    <div class="configs-wrapper" style="margin: 15px auto;">
+        <div class="configs input-container">
+            <span>
+                Stack (BB): <input bind:value={stack} class="config-input" type="number" step="0.5" />
+            </span>
+        </div>
+        <div class="configs input-container">
+            <span>
+                SB (BB): <input bind:value={sb} class="config-input" type="number" step="0.1" />
+            </span>
+        </div>
+        <div class="configs input-container">
+            <span>
+                Ante (BB):<input bind:value={ante} class="config-input" type="number" step="0.005" />
+            </span>
+        </div>
     </div>
     <div class="configs">
         <button onclick={() => reset()}>Default</button>
@@ -94,26 +106,28 @@
                             {#if selected == "bu"}
                                 <div
                                     class="bet"
-                                    style="height: calc({cellWidth}px * {strategy[168 - (rowIndex + 13 * colIndex)]});"
+                                    style="height: calc({cellHeight}px * {strategy[168 - (rowIndex + 13 * colIndex)]});"
                                 ></div>
                                 <div
                                     class="fold"
-                                    style="top: calc({cellWidth}px * {strategy[
+                                    style="top: calc({cellHeight}px * {strategy[
                                         168 - (rowIndex + 13 * colIndex)
-                                    ]}); height: calc({cellWidth}px * {1 - strategy[168 - (rowIndex + 13 * colIndex)]})"
+                                    ]}); height: calc({cellHeight}px * {1 -
+                                        strategy[168 - (rowIndex + 13 * colIndex)]})"
                                 ></div>
                             {/if}
 
                             {#if selected == "bb"}
                                 <div
                                     class="call"
-                                    style="height: calc({cellWidth}px * {strategy[337 - (rowIndex + 13 * colIndex)]});"
+                                    style="height: calc({cellHeight}px * {strategy[337 - (rowIndex + 13 * colIndex)]});"
                                 ></div>
                                 <div
                                     class="fold"
-                                    style="top: calc({cellWidth}px * {strategy[
+                                    style="top: calc({cellHeight}px * {strategy[
                                         337 - (rowIndex + 13 * colIndex)
-                                    ]}); height: calc({cellWidth}px * {1 - strategy[337 - (rowIndex + 13 * colIndex)]})"
+                                    ]}); height: calc({cellHeight}px * {1 -
+                                        strategy[337 - (rowIndex + 13 * colIndex)]})"
                                 ></div>
                             {/if}
                         </div>
@@ -253,13 +267,12 @@
         display: flex;
         place-items: center;
         font-size: 12pt;
-        text-align: center;
         margin: auto;
     }
 
     .config-input {
         margin: 5px;
-        width: 35px;
+        width: 55px;
     }
 
     .configs-wrapper {
@@ -276,7 +289,7 @@
         .cell {
             width: 20px;
             height: 20px;
-            font-size: 9px;
+            font-size: 8px;
         }
 
         .bet,
@@ -295,6 +308,15 @@
 
         .configs-wrapper {
             flex-direction: column;
+        }
+
+        .input-container {
+            width: 155px;
+        }
+
+        .input-container > span {
+            margin: 0 0 0 auto;
+            display: block;
         }
     }
 </style>
