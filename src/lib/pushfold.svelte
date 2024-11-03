@@ -40,7 +40,6 @@ function reset() {
     sb = 0.5
     ante = 0.125
     strategy = solve_push_fold(stack, sb, ante, niter)
-    selected = "bu"
     compute_freqs()
 }
 
@@ -143,7 +142,8 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  margin: 5px;
+  font-size: 12pt;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
@@ -175,23 +175,46 @@ button:hover {
 
 .push-summary {
     background-color: rgb(233, 150, 122);
-    padding: 5px 10px 5px 10px; 
-    border-radius: 5px;
 }
 
 .call-summary {
     background-color: rgb(143, 188, 139);
-    padding: 5px 10px 5px 10px; 
-    border-radius: 5px;
 }
 
 .fold-summary {
     background-color: rgb(109, 162, 192);
+}
+
+.push-summary, .call-summary, .fold-summary {
     padding: 5px 10px 5px 10px; 
     border-radius: 5px;
+    margin: 5px;
+}
+
+.configs {
+    display: flex;
+    place-items: center;
+    font-size: 12pt;
+    text-align: center;
+    margin: auto;
+}
+
+.config-input {
+    margin: 5px;
+    width: 25px;
+}
+
+.configs-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+    place-items: center;
 }
 
 @media only screen and (max-width: 1024px) {
+button {
+    font-size: 9pt;
+}
 .cell {
     width: 20px;
     height: 20px;
@@ -205,16 +228,27 @@ button:hover {
 .selector {
     height: 123px;
 }
+
+.configs {
+    font-size: 12px;
+}
+
+.configs-wrapper {
+    flex-direction: column;
+}
 }
 </style>
 
-
-<div style="margin-bottom: 15px; text-align: center;">
-Stack (BB): <input bind:value={stack} style="width: 25px; margin-right: 15px;">
-SB (BB): <input bind:value={sb} style="width: 25px; margin-right: 15px;">
-Ante (BB): <input bind:value={ante} style="width: 45px; margin-right: 15px;">
-<button onclick={() => solve()}>Solve</button>
-<button onclick={() => reset()}>Default</button>
+<div class="configs-wrapper">
+<div class="configs">
+Stack (BB): <input bind:value={stack} class="config-input">
+SB (BB): <input bind:value={sb} class="config-input">
+Ante (BB): <input bind:value={ante} class="config-input" style="width: 40px;">
+</div>
+<div class="configs">
+    <button onclick={() => solve()}>Solve</button>
+    <button onclick={() => reset()}>Default</button>
+</div>
 </div>
 
 <div class="wrapper">
@@ -227,7 +261,6 @@ Ante (BB): <input bind:value={ante} style="width: 45px; margin-right: 15px;">
     select("bb")} class="selector">
         <div style="margin: auto;">BB</div>
     </div>
-
 </div>
 
 <div>
@@ -244,7 +277,7 @@ Ante (BB): <input bind:value={ante} style="width: 45px; margin-right: 15px;">
 
         {#if selected == "bb"}
         <div class="call" style="height: calc({cellWidth}px * {strategy[337 - (rowIndex + 13 * colIndex)]});"></div>
-        <div class="fold" style="top: calc({cellWidth} * {strategy[337 - (rowIndex + 13 * colIndex)]}); height:
+        <div class="fold" style="top: calc({cellWidth}px * {strategy[337 - (rowIndex + 13 * colIndex)]}); height:
         calc({cellWidth}px * {(1-strategy[337 - (rowIndex + 13 * colIndex)])})"></div>
         {/if}
 
@@ -259,14 +292,18 @@ Ante (BB): <input bind:value={ante} style="width: 45px; margin-right: 15px;">
 </div>
 </div>
 
-<div style="margin-top: 15px; text-align: center;">
+<div class="configs-wrapper">
+<div class="configs">
 BU:
-<span class="push-summary" style="margin-left: 5px;">push {push}%</span>
-<span class="fold-summary" style="margin-right: 25px;">fold {bu_fold}%</span>
+<span class="push-summary">push {push}%</span>
+<span class="fold-summary">fold {bu_fold}%</span>
+</div>
 
+<div class="configs">
 BB:
-<span class="call-summary" style="margin-left: 5px;">call {call}%</span>
+<span class="call-summary">call {call}%</span>
 <span class="fold-summary">fold {bb_fold}%</span>
+</div>
 
 </div>
 
