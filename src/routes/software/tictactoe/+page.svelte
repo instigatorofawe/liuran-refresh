@@ -1,5 +1,5 @@
 <script>
-import Tictactoe from '$lib/tictactoe.svelte'
+    import Tictactoe from "$lib/tictactoe.svelte"
 </script>
 
 <div style="margin: auto;">
