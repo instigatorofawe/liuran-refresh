@@ -71,6 +71,7 @@ function solve() {
     } else {
         board = result
     }
+    selected = null
 }
 
 function reset() {
