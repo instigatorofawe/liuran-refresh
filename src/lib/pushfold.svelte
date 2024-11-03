@@ -14,6 +14,9 @@ let bu_fold = $state("")
 let call = $state("")
 let bb_fold = $state("")
 
+let innerWidth = $state(0)
+let cellWidth = $derived(innerWidth <= 1024 ? 18 : 49)
+
 compute_freqs()
 
 let hands = [
@@ -98,6 +101,7 @@ function compute_freqs() {
     margin-right: -1px;
     margin-bottom: -1px;
     display: flex;
+    font-size: 16px;
 }
 
 .cell:hover {
@@ -151,6 +155,8 @@ button:hover {
 }
 
 .selector {
+    height: 324px;
+    display: flex;
     background-color: #efefef;
 }
 
@@ -184,6 +190,22 @@ button:hover {
     padding: 5px 10px 5px 10px; 
     border-radius: 5px;
 }
+
+@media only screen and (max-width: 1024px) {
+.cell {
+    width: 20px;
+    height: 20px;
+    font-size: 9px;
+}
+
+.bet, .fold, .call {
+    width: 19px;
+}
+
+.selector {
+    height: 123px;
+}
+}
 </style>
 
 
@@ -196,17 +218,18 @@ Ante (BB): <input bind:value={ante} style="width: 45px; margin-right: 15px;">
 </div>
 
 <div class="wrapper">
-<div style="width: 40px; border: 1px solid; margin-right: -1px; margin-bottom: -1px;">
-    <div style="height: 325px; border-bottom: 1px solid; display: flex;" class:selected={selected=="bu"}
+<div style="width: 50px; border: 1px solid; margin-right: -1px; margin-bottom: -1px;">
+    <div class:selected={selected=="bu"}
     onclick={() => select("bu")} class="selector">
         <div style="margin: auto;">BU</div>
     </div>
-    <div style="height: calc(649px - 325px); display: flex;" class:selected={selected=="bb"} onclick={() =>
+    <div class:selected={selected=="bb"} onclick={() =>
     select("bb")} class="selector">
         <div style="margin: auto;">BB</div>
     </div>
 
 </div>
+
 <div>
 {#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as rowIndex}
 <div class="row">
@@ -214,13 +237,15 @@ Ante (BB): <input bind:value={ante} style="width: 45px; margin-right: 15px;">
     <div class="cell">
         <div style="position: relative;">
         {#if selected == "bu"}
-        <div class="bet" style="height: calc(49px * {strategy[168 - (rowIndex + 13 * colIndex)]});"></div>
-        <div class="fold" style="top: calc(49px * {strategy[168 - (rowIndex + 13 * colIndex)]}); height: calc(49px * {(1-strategy[168 - (rowIndex + 13 * colIndex)])})"></div>
+        <div class="bet" style="height: calc({cellWidth}px * {strategy[168 - (rowIndex + 13 * colIndex)]});"></div>
+        <div class="fold" style="top: calc({cellWidth}px * {strategy[168 - (rowIndex + 13 * colIndex)]}); height:
+        calc({cellWidth}px * {(1-strategy[168 - (rowIndex + 13 * colIndex)])})"></div>
         {/if}
 
         {#if selected == "bb"}
-        <div class="call" style="height: calc(49px * {strategy[337 - (rowIndex + 13 * colIndex)]});"></div>
-        <div class="fold" style="top: calc(49px * {strategy[337 - (rowIndex + 13 * colIndex)]}); height: calc(49px * {(1-strategy[337 - (rowIndex + 13 * colIndex)])})"></div>
+        <div class="call" style="height: calc({cellWidth}px * {strategy[337 - (rowIndex + 13 * colIndex)]});"></div>
+        <div class="fold" style="top: calc({cellWidth} * {strategy[337 - (rowIndex + 13 * colIndex)]}); height:
+        calc({cellWidth}px * {(1-strategy[337 - (rowIndex + 13 * colIndex)])})"></div>
         {/if}
 
         </div>
@@ -244,3 +269,5 @@ BB:
 <span class="fold-summary">fold {bb_fold}%</span>
 
 </div>
+
+<svelte:window bind:innerWidth />
