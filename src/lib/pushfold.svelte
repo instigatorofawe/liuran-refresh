@@ -67,19 +67,13 @@
 <div style="display: flex;">
     <div class="configs-wrapper" style="margin: 15px auto;">
         <div class="configs input-container">
-            <span>
-                Stack (BB): <input bind:value={stack} class="config-input" type="number" step="0.5" />
-            </span>
+            Stack (BB): <input bind:value={stack} class="config-input" type="number" step="0.5" />
         </div>
         <div class="configs input-container">
-            <span>
-                SB (BB): <input bind:value={sb} class="config-input" type="number" step="0.1" />
-            </span>
+            SB (BB): <input bind:value={sb} class="config-input" type="number" step="0.1" />
         </div>
         <div class="configs input-container">
-            <span>
-                Ante (BB):<input bind:value={ante} class="config-input" type="number" step="0.005" />
-            </span>
+            Ante (BB):<input bind:value={ante} class="config-input" type="number" step="0.005" />
         </div>
     </div>
     <div class="configs">
