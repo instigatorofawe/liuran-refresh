@@ -77,10 +77,10 @@
 
 <div class="wrapper">
     <div style="width: 50px; border: 1px solid; margin-right: -1px; margin-bottom: -1px;">
-        <div class:selected={selected == "bu"} onclick={() => select("bu")} class="selector">
+        <div class:bu-selected={selected == "bu"} onclick={() => select("bu")} class="selector">
             <div style="margin: auto;">BU</div>
         </div>
-        <div class:selected={selected == "bb"} onclick={() => select("bb")} class="selector">
+        <div class:bb-selected={selected == "bb"} onclick={() => select("bb")} class="selector">
             <div style="margin: auto;">BB</div>
         </div>
     </div>
@@ -177,7 +177,6 @@
         top: 0px;
         left: 0px;
         width: 49px;
-        background-color: rgb(233, 150, 122);
         z-index: -1;
     }
 
@@ -186,7 +185,6 @@
         top: 0px;
         left: 0px;
         width: 49px;
-        background-color: rgb(143, 188, 139);
         z-index: -1;
     }
 
@@ -194,7 +192,6 @@
         position: absolute;
         left: 0px;
         width: 49px;
-        background-color: rgb(109, 162, 192);
         z-index: -1;
     }
 
@@ -225,23 +222,22 @@
         background-color: #dfdfdf;
     }
 
-    .selected {
-        background-color: #afafaf;
-    }
-
-    .selected:hover {
-        background-color: #afafaf;
-    }
-
+    .bu-selected,
+    .bu-selected:hover,
+    .bet,
     .push-summary {
         background-color: rgb(233, 150, 122);
     }
 
+    .bb-selected,
+    .bb-selected:hover,
+    .call,
     .call-summary {
         background-color: rgb(143, 188, 139);
     }
 
-    .fold-summary {
+    .fold-summary,
+    .fold {
         background-color: rgb(109, 162, 192);
     }
 
