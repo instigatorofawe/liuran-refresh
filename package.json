@@ -10,7 +10,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "npm run build:wasm && vitest",
-		"test": "npm run test:unit -- --run",
+		"test": "npm run test:unit -- --run && cargo test --manifest-path wasm_modules/Cargo.toml",
 		"deploy": "npm run build && npx gh-pages -d build -t true -r git@github.com:instigatorofawe/instigatorofawe.github.io.git"
 	},
 	"devDependencies": {
