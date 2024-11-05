@@ -1,12 +1,15 @@
 <script lang="ts">
     import { solve_push_fold } from "$lib/pkg/wasm_modules"
 
-    const niter = 150
+    const N_ITER = 150
+    const TOTAL_COMBOS = 1326
+    const N_HANDS = 169
+    const BREAKPOINT_MOBILE = 1024
 
     let stack = $state(5.0)
     let sb = $state(0.5)
     let ante = $state(0.125)
-    let strategy = $derived(solve_push_fold(stack, sb, ante, niter))
+    let strategy = $derived(solve_push_fold(stack, sb, ante, N_ITER))
     let selected = $state("bu")
 
     let frequencies = $derived.by(() => {
@@ -25,8 +28,8 @@
                 combos = 12
             }
 
-            strategy_bu += (strategy[index] * combos) / 1326
-            strategy_bb += (strategy[index + 169] * combos) / 1326
+            strategy_bu += (strategy[index] * combos) / TOTAL_COMBOS
+            strategy_bb += (strategy[index + N_HANDS] * combos) / TOTAL_COMBOS
         }
         let formatter = new Intl.NumberFormat("en-US", { maximumSignificantDigits: 4 })
         let push = formatter.format(strategy_bu * 100)
@@ -38,7 +41,7 @@
     })
 
     let innerWidth = $state(0)
-    let cellHeight = $derived(innerWidth <= 1024 ? 19 : 50)
+    let cellHeight = $derived(innerWidth <= BREAKPOINT_MOBILE ? 20 : 50)
 
     // prettier-ignore
     const hands = [ "22", "32s", "42s", "52s", "62s", "72s", "82s", "92s", "T2s", "J2s", "Q2s", "K2s", "A2s", "32o",
@@ -83,10 +86,24 @@
 
 <div class="wrapper">
     <div style="width: 50px; border: 1px solid; margin-right: -1px; margin-bottom: -1px;">
-        <div class:bu-selected={selected == "bu"} onclick={() => select("bu")} class="selector">
+        <div
+            tabindex="0"
+            class:bu-selected={selected == "bu"}
+            role="button"
+            onkeypress={(e) => e.key === "Enter" && select("bu")}
+            onclick={() => select("bu")}
+            class="selector"
+        >
             <div style="margin: auto;">BU</div>
         </div>
-        <div class:bb-selected={selected == "bb"} onclick={() => select("bb")} class="selector">
+        <div
+            tabindex="0"
+            class:bb-selected={selected == "bb"}
+            role="button"
+            onkeypress={(e) => e.key === "Enter" && select("bb")}
+            onclick={() => select("bb")}
+            class="selector"
+        >
             <div style="margin: auto;">BB</div>
         </div>
     </div>
@@ -96,7 +113,7 @@
             <div class="row">
                 {#each [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as colIndex}
                     <div class="cell">
-                        <div style="position: relative;">
+                        <div class="strategy-indicator">
                             {#if selected == "bu"}
                                 <div
                                     class="bet"
@@ -104,23 +121,17 @@
                                 ></div>
                                 <div
                                     class="fold"
-                                    style="top: calc({cellHeight}px * {strategy[
-                                        168 - (rowIndex + 13 * colIndex)
-                                    ]}); height: calc({cellHeight}px * {1 -
+                                    style="height: calc({cellHeight}px * {1 -
                                         strategy[168 - (rowIndex + 13 * colIndex)]})"
                                 ></div>
-                            {/if}
-
-                            {#if selected == "bb"}
+                            {:else}
                                 <div
                                     class="call"
                                     style="height: calc({cellHeight}px * {strategy[337 - (rowIndex + 13 * colIndex)]});"
                                 ></div>
                                 <div
                                     class="fold"
-                                    style="top: calc({cellHeight}px * {strategy[
-                                        337 - (rowIndex + 13 * colIndex)
-                                    ]}); height: calc({cellHeight}px * {1 -
+                                    style="height: calc({cellHeight}px * {1 -
                                         strategy[337 - (rowIndex + 13 * colIndex)]})"
                                 ></div>
                             {/if}
@@ -173,11 +184,16 @@
         margin-bottom: -1px;
         display: flex;
         font-size: 16px;
+        position: relative;
     }
 
     .cell:hover {
         cursor: pointer;
         background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .strategy-indicator {
+        position: absolute;
     }
 
     .bet {
@@ -281,8 +297,8 @@
             font-size: 9pt;
         }
         .cell {
-            width: 20px;
-            height: 20px;
+            width: 21px;
+            height: 21px;
             font-size: 8px;
         }
 
@@ -293,7 +309,7 @@
         }
 
         .selector {
-            height: 123px;
+            height: 129.5px;
         }
 
         .configs {
