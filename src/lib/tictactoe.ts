@@ -173,11 +173,11 @@ export class SolutionTable {
 
         switch (board.winner()) {
             case Tile.X:
-                this.valueTable[hash] = 1
-                return 1
+                this.valueTable[hash] = board.empty().length + 1
+                return board.empty().length + 1
             case Tile.O:
-                this.valueTable[hash] = -1
-                return -1
+                this.valueTable[hash] = -board.empty().length - 1
+                return -board.empty().length - 1
             case Tile.Empty:
                 if (board.empty().length == 0) {
                     this.valueTable[hash] = 0
