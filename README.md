@@ -1,38 +1,9 @@
-# create-svelte
+# Liuran.net (2024 design update)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This is my personal website, which is in essence a portfolio of my publications, technical projects, and writing, along
+with links to my professional profiles (Google Scholar, LinkedIn, and GitHub).  
 
-## Creating a project
+It is a static website written using SvelteKit. Certain demos are run on WebAssembly, compiled from Rust. All
+functionality runs client-side. Deployment to GitHub Pages is done using
+[`gh-pages`](https://github.com/tschaub/gh-pages).
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

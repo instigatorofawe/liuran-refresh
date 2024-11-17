@@ -197,24 +197,19 @@
     }
 
     .bet {
-        position: absolute;
-        top: 0px;
-        left: 0px;
+        position: relative;
         width: 49px;
         z-index: -1;
     }
 
     .call {
-        position: absolute;
-        top: 0px;
-        left: 0px;
+        position: relative;
         width: 49px;
         z-index: -1;
     }
 
     .fold {
-        position: absolute;
-        left: 0px;
+        position: relative;
         width: 49px;
         z-index: -1;
     }
