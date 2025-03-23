@@ -1,3 +1,4 @@
+mod icm;
 mod push_fold;
 mod sudoku;
 mod util;

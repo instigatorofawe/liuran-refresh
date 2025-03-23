@@ -29,22 +29,6 @@
         </div>
     </div>
 
-    <div class="software-item clickable" onclick={() => goto("/software/sudoku")}>
-        <h2>Sudoku Solver</h2>
-        <div class="description">
-            A Sudoku solver, written in Rust and compiled to WebAssembly. Empty cells with only one possible solution
-            are filled in first, before resorting to depth-first search and backtracking, starting with the cell with
-            the fewest possible candidates.
-        </div>
-    </div>
-
-    <div class="software-item clickable" onclick={() => goto("/software/tictactoe")}>
-        <h2>Tic-Tac-Toe Solver</h2>
-        <div class="description">
-            A Tic-Tac-Toe solver. The game is solved via tabular minimax, with reflection and rotation-invariant hashes
-            computed in order to reduce the number of game states to 765.
-        </div>
-    </div>
 </div>
 
 <style>
