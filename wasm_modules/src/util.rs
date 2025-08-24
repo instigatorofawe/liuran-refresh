@@ -1,17 +1,9 @@
-pub fn inner_prod(a: &[f32], b: &[f32]) -> f32 {
-    a.iter().zip(b.iter()).map(|(x, y)| x * y).sum()
-}
-
 pub fn scalar_mul(a: &mut [f32], b: f32) {
     a.iter_mut().for_each(|x| *x *= b);
 }
 
 pub fn scalar_div(a: &mut [f32], b: f32) {
     a.iter_mut().for_each(|x| *x /= b);
-}
-
-pub fn scalar_add(a: &mut [f32], b: f32) {
-    a.iter_mut().for_each(|x| *x += b);
 }
 
 pub fn scalar_sub(a: &mut [f32], b: f32) {
@@ -39,11 +31,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_inner_prod() {
-        assert_eq!(inner_prod(&[1., 2., 3.], &[4., 5., 6.]), 32.);
-    }
-
-    #[test]
     fn test_scalar_mul() {
         let mut x = [1.0_f32, 2., 3.];
         scalar_mul(&mut x, 0.5);
@@ -55,13 +42,6 @@ mod tests {
         let mut x = [1.0_f32, 2., 3.];
         scalar_div(&mut x, 2.0);
         assert_eq!(&x, &[0.5, 1., 1.5]);
-    }
-
-    #[test]
-    fn test_scalar_add() {
-        let mut x = [1.0_f32, 2., 3.];
-        scalar_add(&mut x, 1.0);
-        assert_eq!(&x, &[2.0, 3.0, 4.0]);
     }
 
     #[test]
