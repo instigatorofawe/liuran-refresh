@@ -1,5 +1,7 @@
 <script lang="ts">
     import { solve_push_fold } from "$lib/pkg/wasm_modules"
+    import { trackDemoInteraction } from "$lib/analytics"
+    import { onMount } from "svelte"
 
     const N_ITER = 150
     const TOTAL_COMBOS = 1326
@@ -11,6 +13,10 @@
     let ante = $state(0.125)
     let strategy = $derived(solve_push_fold(stack, sb, ante, N_ITER))
     let selected = $state("bu")
+
+    onMount(() => {
+        trackDemoInteraction('pushfold', 'start')
+    })
 
     let frequencies = $derived.by(() => {
         let strategy_bu = 0
@@ -60,10 +66,12 @@
         stack = 5.0
         sb = 0.5
         ante = 0.125
+        trackDemoInteraction('pushfold', 'reset')
     }
 
     function select(id: string) {
         selected = id
+        trackDemoInteraction('pushfold', `select_${id}`)
     }
 </script>
 

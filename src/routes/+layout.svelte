@@ -1,3 +1,34 @@
+<script lang="ts">
+    import { page } from '$app/stores';
+    import { afterNavigate } from '$app/navigation';
+    import { trackPageView, trackNavigation, trackOutboundLink } from '$lib/analytics';
+    import { onMount } from 'svelte';
+
+    // Track page views on navigation
+    afterNavigate((navigation) => {
+        const url = navigation.to?.url.pathname || '';
+        const title = document.title;
+        trackPageView(url, title);
+    });
+
+    // Handle navigation clicks
+    function handleNavClick(event: MouseEvent) {
+        const target = event.target as HTMLElement;
+        const link = target.closest('a');
+        if (!link) return;
+
+        const href = link.getAttribute('href') || '';
+        const text = link.textContent || '';
+
+        // Check if it's an external link
+        if (href.startsWith('http')) {
+            trackOutboundLink(text, href);
+        } else {
+            trackNavigation(text, href);
+        }
+    }
+</script>
+
 <svelte:head>
     <title>Ran Liu</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -8,7 +39,7 @@
     />
 </svelte:head>
 
-<div class="nav">
+<div class="nav" on:click={handleNavClick}>
     <div>
         <a href="/">about</a> |
         <a href="/publications">publications</a> |
